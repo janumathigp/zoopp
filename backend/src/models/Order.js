@@ -1,6 +1,7 @@
 const mongoose = require("mongoose")
 
 const orderSchema = new mongoose.Schema({
+    orderID:Number,
     customerName: String,
     items:[{
         name:String,
@@ -11,13 +12,29 @@ const orderSchema = new mongoose.Schema({
         firstLine: String,
         secondLine:String,
         city:String,
-        pincode:Number
+        pincode:Number,
+        latitude: {
+            type: Number,
+            required: true
+        },
+        longitude: {
+            type: Number,
+            required: true
+        }
     },
-    deliveryPersonId: Number,
+    deliveryPersonId: {
+        type:Number,
+        default:null
+    },
     createdAt: {
-        t: Number,
-        i: Number
-      }
+        type: Date,
+        default: Date.now,
+      },
+    phone:Number,
+    status:{
+        type:String,
+        default:"pending"
+    }
 })
 
 module.exports = mongoose.model('Order',orderSchema);
