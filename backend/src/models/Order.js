@@ -13,7 +13,7 @@ const orderSchema = new mongoose.Schema({
         city:String,
         pincode:Number
     },
-    deliveryPartner: mongoose.Schema.Types.ObjectId,
+    deliveryPersonId: Number,
     createdAt: {
         t: Number,
         i: Number
